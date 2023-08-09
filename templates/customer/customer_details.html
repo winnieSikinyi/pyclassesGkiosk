@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #716de3;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .images {
+            max-width: 100%;
+            height: auto;
+        }
+        .customer-title {
+            font-size: 1.5rem;
+            margin: 10px 0;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <img src="{{ customer.image.url }}" alt="{{ product.title }}" class="images">
+        <h2 class="customer-title">{{ customer.firstname }}</h2>
+        <h2 class="customer-title">{{ customer.lastname }}</h2>
+        <h2 class="customer-title">{{ customer.email }}</h2>
+        <h2 class="customer-title">{{ customer.phonenumber }}</h2>
+        <h2 class="customer-title">{{ customer.password }}</h2>
+        <h2 class="customer-title">{{ customer.address }}</h2>
+    </div>
+
+</body>
+</html>

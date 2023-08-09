@@ -1,0 +1,74 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>django</title>
+
+ 
+
+    </head>
+    <body>
+    <form method="POST" class="upload_form">
+        {%csrf_token%} 
+        {{form.as_p}}
+        <button type="submit">Save</button>
+
+    </form>
+    
+</body>
+</html> -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>django</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f7f7f7;
+            margin: 0;
+            padding: 0;
+        }
+        .upload_form {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .upload_form label {
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+        .upload_form input {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            margin-bottom: 20px;
+        }
+        .upload_form button {
+            background-color: #007BFF;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <form method="POST" class="upload_form">
+        {% csrf_token %}
+        <label for="id_field1">Field 1:</label>
+        <input type="text" name="field1" id="id_field1">
+        <label for="id_field2">Field 2:</label>
+        <input type="text" name="field2" id="id_field2">
+        <button type="submit">Save</button>
+    </form>
+    
+</body>
+</html>

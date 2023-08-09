@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+    body {
+        background-color:#ccdbe1 ;
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+    }
+
+    .product-container {
+        max-width: 800px;
+        margin: 50px auto;
+        background-color: #fff;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        border-radius: 5px;
+    }
+
+    .product-image {
+        max-width: 100%;
+        height: auto;
+        border-radius: 5px;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .product-title {
+        font-size: 24px;
+        margin-top: 10px;
+    }
+
+    .product-description {
+        font-size: 16px;
+        color: #555;
+        margin-top: 10px;
+    }
+
+    .product-price {
+        font-size: 20px;
+        color: #3498db;
+        display: block;
+        margin-top: 10px;
+    }
+
+    .add-to-cart-btn {
+        background-color: #06619e;
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 4px;
+        cursor: pointer;
+        margin-top: 20px;
+    }
+
+    .add-to-cart-btn:hover {
+        background-color: #2980b9;
+    }
+    .images{
+        width: 40%;
+    }
+</style>
+    <div>
+        <img src="{{ payment.image.url }}" alt="{{ payment.title}}" class="images">
+        <h2 class="payment-title"> {{ payment.amount}}</h2>
+        <p class="payment"> {{ payment.currency}}</p>
+        <p class="payment"> {{ payment.date}}</p>
+        <p class="payment"> {{ payment.method}}</p>
+        <p class="payment"> {{ payment.customer_id}}</p>
+        <p class="payment"> {{ payment.order_id}}</p>
+
+
+        <button class="add-to-cart-btn">Add to cart</button>
+    </div>
+
+</body>
+</html>

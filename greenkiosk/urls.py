@@ -22,6 +22,18 @@ from django.urls import path, include
 urlpatterns = [
     path('admin/', admin.site.urls),
     path("inventory/", include ("inventory.urls")),
+    path("customer/" ,include ("customer.urls")),
+
+    path("order/", include  ("order.urls")),
+    path("cart/" , include ("cart.urls")),
+    
+    path("categories/", include ("category.urls")),
+
+    path("deliverys/", include ("delivery.urls")),
+
+    path("payment/", include ("payment.urls")),
+
+
 ]
 
 if settings.DEBUG:

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #71c2ee;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            max-width: 400px;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .container img {
+            max-width: 100%;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+
+        .customer-title {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .customer-title:last-child {
+            margin-bottom: 0;
+        }
+    </style>
+
+</head>
+<body>
+
+    <div class="container">
+        <img src="{{ order.image.url }}" alt="{{ product.title }}" class="images">
+        <h2 class="customer-title">{{ order.name }}</h2>
+        <h2 class="customer-title">{{ order.quantity }}</h2>
+        <h2 class="customer-title">{{ order.price }}</h2>
+        <h2 class="customer-title">{{ order.basket }}</h2>
+        <h2 class="customer-title">{{ order.customer }}</h2>
+        <h2 class="customer-title">{{ order.shipments }}</h2>
+    </div>
+
+</body>
+</html>
