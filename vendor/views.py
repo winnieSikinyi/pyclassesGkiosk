@@ -2,29 +2,29 @@
 # Create your views here.
 from django.shortcuts import render ,redirect
 from .forms import VendorUploadForm
-from .models import vendor
+from vendor.models import Vendor
 
 def vendor_upload_view(request):
     form = VendorUploadForm()
     return render(request,"vendor/vendor_upload.html", {"form":form})
 
 def vendor_list_view(request):
-    vendors = Categories.objects.all()
+    vendors = Vendor.objects.all()
     return render(request,"vendor/vendor_list.html",{"vendors":vendors})
 
 
-def category_detail(request,id):
-    category = Category.objects.get(id=id)
-    return render(request,"category/category_details.html", {"category":category})
+def vendor_detail(request,id):
+    vendor = Vendor.objects.get(id=id)
+    return render(request,"vendor/vendor_details.html", {"vendor":vendor})
 
-def category_update_view(request, id):
-    category = Category.objects.get(id=id)
+def vendor_update_view(request, id):
+    vendor = Vendor.objects.get(id=id)
     if request.method == 'POST':
-        form = CategoryUploadForm(request.POST, instance=category)
+        form = VendorUploadForm(request.POST, instance=vendor)
         if form.is_valid():
             form.save()
-            return redirect("category_detail_view", id=category.id)
+            return redirect("vendor_detail_view", id=vendor.id)
 
     else:
-        form =CategoryUploadForm(instance=category)
-        return render(request, "category/edit_category.html", {'form': form})
+        form =VendorUploadForm(instance=vendor)
+        return render(request, "vendor/edit_vendor.html", {'form': form})

@@ -8,7 +8,7 @@ def payment_upload_view(request):
 
 def payments_list_view(request):
     payments = Payment.objects.all()
-    return render(request,"payment/payment_list.html",{"payment": payments})
+    return render(request,"payment/payment_list.html",{"payments": payments})
 
 
 def payment_detail(request,id):
@@ -21,7 +21,7 @@ def payment_update_view(request, id):
         form = PaymentUploadForm(request.POST, instance=payment)
         if form.is_valid():
             form.save()
-            return redirect("payment_detail_view", id=payment.id)
+            return redirect("payment_detail", id=id)
 
     else:
         form =PaymentUploadForm(instance=payment)

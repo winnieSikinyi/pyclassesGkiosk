@@ -60,14 +60,14 @@
     
 <div class="review-container">
       
-        {% for reviw in reviews %}
+        {% for review in reviews %}
         <div class="product">
             <img src="{{ review.image.url }}" alt="{{ review.title}}" class="images">
             <p class="review-title"> {{review.review_name}}</p>
             <div class="product-buttons"> 
-                <a href="{% url 'review_detail_view' id=review.id %}">View Details</a>
+                <a href="{% url 'reviews_details_view' id=review.id %}">View Details</a>
 
-                <a href="{% url 'review_update_view' id=review.id %}" class="edit">Edit Details</a>
+                <a href="{% url 'reviews_update_view' id=review.id %}" class="edit">Edit Details</a>
         </div> 
 
 

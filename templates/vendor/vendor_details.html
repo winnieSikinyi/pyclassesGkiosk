@@ -67,9 +67,12 @@
 </style>
     <div>
         <img src="{{ vendor.image.url }}" alt="{{ vendor.title}}" class="images">
-        <h2 class="vendor-title"> {{ vendor.title}}</h2>
-        <p class="vendor-description"> {{ vendor.description}}</p>
-        <span class="vendor-price"> {{ vendor.price}}</span>
+        <p class="vendor-title"> {{vendor.name}}</p>
+        <p> {{vendor.email}}</p>
+        <p> {{vendor.phone}}</p>
+        <p> {{vendor.address}}</p>
+        <p> {{vendor.created_at}}</p>
+        <p> {{vendor.updated_at}}</p>
         <button class="add-to-cart-btn">Add to cart</button>
     </div>
 

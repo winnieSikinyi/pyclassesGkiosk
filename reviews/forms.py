@@ -3,5 +3,5 @@ from .models import Reviews
 
 class ReviewUploadForm(forms.ModelForm):
     class Meta: 
-        model = Review
+        model = Reviews
         fields = "__all__"

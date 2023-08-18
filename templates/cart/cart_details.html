@@ -4,15 +4,72 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+
+        /* Reset some default styles */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Apply styling to the container */
+.cart-container {
+    text-align: center;
+    padding: 20px;
+}
+
+/* Style the cart image */
+.cart-image {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Style the cart title */
+.cart-title {
+    font-size: 24px;
+    margin: 10px 0;
+}
+
+/* Style the cart description */
+.cart-description {
+    font-size: 16px;
+    margin: 5px 0;
+}
+
+
+.cart-price {
+    font-size: 18px;
+    font-weight: bold;
+    color: #008000;
+}
+
+/* Style the add to cart button */
+.add-to-cart-btn {
+    padding: 10px 20px;
+    font-size: 18px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+    </style>
 </head>
 <body>
 
-    <div>
+    <div class="cart-container">
+
         <img src="{{ cart.image.url }}" alt="{{ cart.title}}" class="images">
         <h2 class="cart-title"> {{ cart.title}}</h2>
         <p class="cart-description"> {{ cart.description}}</p>
         <span class="cart-price"> {{ cart.price}}</span>
-        <button class="add-to-cart-btn">Add to cart</button>
+        <!-- <button class="add-to-cart-btn">Add to cart</button> -->
+
+        <p>successfully saved
+        </p>
     </div>
 
 </body>

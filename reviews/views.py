@@ -1,31 +1,31 @@
 from django.shortcuts import render ,redirect
 from .forms import ReviewUploadForm
-from .models import Review
+from .models import Reviews
 
 def review_upload_view(request):
     form = ReviewUploadForm()
-    return render(request,"review/review_upload.html", {"form":form})
+    return render(request,"review/reviews_upload.html", {"form":form})
 
 def reviews_list_view(request):
-    reviews = Review.objects.all()
-    return render(request,"review/reviews_list.html",{"reviews": reviews})
+    reviews = Reviews.objects.all()
+    return render(request,"reviews/reviews_list.html",{"reviews": reviews})
 
 
 def review_detail(request,id):
-    review = Review.objects.get(id=id)
-    return render(request,"review/review_detail.html", {"review":review})
+    reviews = Reviews.objects.get(id=id)
+    return render(request,"reviews/reviews_details.html", {"reviews":reviews})
 
 def review_update_view(request, id):
-    review = Review.objects.get(id=id)
+    reviews = Reviews.objects.get(id=id)
     if request.method == 'POST':
-        form = ReviewUploadForm(request.POST, instance=review)
+        form = ReviewUploadForm(request.POST, instance=reviews)
         if form.is_valid():
             form.save()
-            return redirect("review_detail_view", id=review.id)
+            return redirect("reviews_details_view", id=reviews.id)
 
     else:
-        form =ReviewUploadForm(instance=review)
-        return render(request, "review/edit_review.html", {'form': form})
+        form =ReviewUploadForm(instance=reviews)
+        return render(request, "reviews/edit_reviews.html", {'form': form})
 
 
 

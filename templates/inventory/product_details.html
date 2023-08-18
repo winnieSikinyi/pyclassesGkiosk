@@ -69,8 +69,9 @@
         <img src="{{ product.image.url }}" alt="{{ product.title}}" class="images">
         <h2 class="product-title"> {{ product.title}}</h2>
         <p class="product-description"> {{ product.description}}</p>
-        <span class="product-price"> {{ product.price}}</span>
-        <button class="add-to-cart-btn">Add to cart</button>
+        <span class="product-price"> {{ product.price}}</span>  
+     
+        <button class="add-to-cart-btn"> <a href="{% url 'cart_list_view' %}" class="edit"> Add to cart</a></button>
     </div>
 
 </body>

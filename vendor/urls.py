@@ -1,15 +1,15 @@
 from django.urls import path
-from .views import category_upload_view
-from .views import category_list_view
-from .views import category_detail
-from .views import category_update_view
+from .views import vendor_upload_view
+from .views import vendor_list_view
+from .views import vendor_detail
+from .views import vendor_update_view
 
 
 urlpatterns =[
     
-    path ("categories /upload/", category_upload_view, name = "category_upload_view"),
-    path("categories /list", category_list_view,name ="category_list_view"),
-    path("categories /<int:id>/",category_detail, name="category_detail_view"),
-    path("categories /edit/<int:id>", category_update_view, name = "category_update_view"),
+    path ("vendor/upload/", vendor_upload_view, name = "vendor_upload_view"),
+    path("vendor/list",vendor_list_view,name ="vendor_list_view"),
+    path("vendor/<int:id>/",vendor_detail, name="vendor_detail_view"),
+    path("vendor/edit/<int:id>",vendor_update_view, name ="vendor_update_view"),
 
 ]
