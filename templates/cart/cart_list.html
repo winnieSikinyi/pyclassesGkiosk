@@ -5,74 +5,142 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GreenKiosk</title>
     <style>
+        
         body {
             font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
             margin: 0;
             padding: 0;
+            background-color: #1abfe9;
         }
 
-        .cart-container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            padding: 20px;
+        h1 {
+            text-align: center;
+            margin: 20px 0;
+            color: #333;
         }
 
-        .cart {
-            background-color: white;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            padding: 20px;
-            margin: 10px;
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: center;
+            border-bottom: 1px solid #ccc;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        img {
+            max-width: 100px;
+            max-height: 100px;
+        }
+
+        form {
+            display: inline-block;
+        }
+
+        .update {
+            background-color: #4caf50;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+
+        .remove {
+            color: #f44336;
+            text-decoration: none;
+        }
+
+        .total_price {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .cart_buttons {
             text-align: center;
         }
 
-        .images {
-            max-width: 100%;
-            height: auto;
-        }
-
-        .cart-title {
-            font-size: 18px;
-            margin-top: 10px;
-        }
-
-        .cart-buttons {
-            margin-top: 10px;
-        }
-
-        .cart-buttons a {
-            display: inline-block;
-            padding: 5px 10px;
-            background-color: #4CAF50;
+        .cart_buttons button {
+            padding: 10px 20px;
+            margin: 0 10px;
+            background-color: #333;
             color: white;
-            text-decoration: none;
-            border-radius: 3px;
-            margin-right: 5px;
+            border: none;
+            cursor: pointer;
         }
 
-        .cart-buttons .edit {
-            background-color: #FFA500;
+        .check-out-btn {
+            display: block;
+            margin: 20px auto;
+            text-align: center;
         }
+
+        .check-out-btn a {
+            text-decoration: none;
+            background-color: #2196F3;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+        }
+
     </style>
-</head>
 <body>
-    <div class="cart-container">
-        {% for cart in carts %}
-        <div class="cart">
-            <img src="{{ cart.image.url }}" alt="{{ cart.title }}" class="images">
-            <p class="cart-title">{{ cart.products }}</p>
-            <p>{{ cart.customer_ID }}</p>
-            <p>{{ cart.list_of_items }}</p>
-            <p>{{ cart.quantity_of_items }}</p>
-            <div class="cart-buttons">
-                <!-- <a href="{% url 'cart_detail_view' id=cart.id %}">View Details</a> -->
-                <a href="{% url 'cart_update_view' id=cart.id %}" class="edit">Edit Details</a>
-                
-            </div>
-        </div>
-        {% endfor %}
+
+    <h1>My Cart</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Product Image</th>
+                <th>Product Name</th>
+                <th>Quantity</th>
+                <th>Product Price</th>
+                <th>Date Added</th>
+                <th>Total Price</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for product in product_cart %}
+            <tr>
+                <td><img src="{{ product.product_image.url }}" /></td>
+                <td>{{ product.product_name }}</td>
+                <td>{{ product.product_quantity }}</td>
+                <td>{{ product.product_price }}</td>
+                <td>{{ product.date_added }}</td>
+                <td>{{ product.total_price }}</td>
+               
+              
+                <td>
+                    <form method="post" action="{% url 'update_cart' id=product.id %}">
+                        {% csrf_token %}
+                        <input type="number" name="quantity" value="{{ product.product_quantity }}" min="1">
+                        <button type="submit" class="update">Update</button>
+                    </form>
+                </td>
+                <td>
+                    <a href="{% url 'remove_item' id=product.id %}" class="remove">Remove</a>
+                </td>
+            </tr>
+            {% endfor %} 
+        </tbody>
+    </table>
+    <div class="total_price">
+        <p >Total Cart Amount: Ksh {{ total_cart_price }}</p>
     </div>
+    <br>
+    <br>
+    <div class="cart_buttons">
+        <a href="{% url 'products_list' %}"><button>Continue Shopping</button></a>
+       
+        <a href="{% url 'empty_cart' %}"><button>Clear Cart</button></a>
+    </div>
+            <button class="check-out-btn"> <a href="{% url 'payments_list_view' %}" class="edit"> CheckOut</a></button>
+
 </body>
 </html>

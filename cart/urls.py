@@ -1,16 +1,14 @@
+
 from django.urls import path
-from .views import cart_upload_view
-from .views import cart_list_view
-from .views import cart_detail
-from .views import cart_update_view
+from django.urls import path
+from django.conf import settings
+from django.conf.urls.static import static
+from .views import add_to_cart, cart_list, update_cart, remove_item, empty_cart
 
-
-urlpatterns =[
-    
-    path ("carts/upload/", cart_upload_view, name = "cart_upload_view"),
-    path("carts/list", cart_list_view,name ="cart_list_view"),
-    path("carts/<int:id>/",cart_detail, name="cart_detail_view"),
-    path("carts/edit/<int:id>", cart_update_view, name = "cart_update_view"),
-
-    
+urlpatterns = [
+    path('add_to_cart/<int:id>/', add_to_cart, name='add_to_cart'),
+    path('product_cart/', cart_list, name='cart_list'),
+    path('update_cart/<int:id>/',update_cart, name='update_cart'),
+    path("remove_item/<int:id>/", remove_item, name = "remove_item"),
+    path("empty/", empty_cart, name="empty_cart"),
 ]
