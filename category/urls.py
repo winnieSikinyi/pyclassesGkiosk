@@ -7,9 +7,9 @@ from .views import category_update_view
 
 urlpatterns =[
     
-    path ("categories/upload/", category_upload_view, name = "category_upload_view"),
-    path("categories/list", category_list_view,name ="category_list_view"),
-    path("categories/<int:id>/",category_detail, name="category_detail_view"),
-    path("categories/edit/<int:id>", category_update_view, name = "category_update_view"),
+    path("category/upload/", category_upload_view, name = "category_upload_view"),
+    path("category/list", category_list_view,name ="category_list_view"),
+    path("category/<int:id>/",category_detail, name="category_detail_view"),
+    path("category/edit/<int:id>", category_update_view, name = "category_update_view"),
 
 ]

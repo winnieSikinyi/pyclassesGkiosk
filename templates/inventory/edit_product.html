@@ -4,20 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Edit Product</title>
-</head>
-<body>
     <style>
         body {
-            background-color:#ccdbe1 ;
+            background-color: #ccdbe1;
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
         }
 
         .edit-form-container {
+            width: 100%;
             max-width: 600px;
-            margin: 50px auto;
-            background-color: #fff;
+            background-color: #ffffff;
             box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
             padding: 20px;
             border-radius: 5px;
@@ -25,7 +27,7 @@
 
         .edit-title {
             font-size: 24px;
-            color: rgb(5, 14, 14);
+            color: #050e0e;
             margin-bottom: 20px;
         }
 
@@ -39,7 +41,8 @@
             margin-bottom: 5px;
         }
 
-        input[type="text"], textarea {
+        input[type="text"],
+        textarea {
             padding: 10px;
             border: 1px solid #ccc;
             border-radius: 4px;
@@ -54,20 +57,22 @@
             border-radius: 4px;
             cursor: pointer;
             align-self: flex-start;
+            transition: background-color 0.3s ease;
         }
 
         button[type="submit"]:hover {
             background-color: #2980b9;
         }
     </style>
-    
-    <h2 class="edit">Edit Product Details</h2>
-    <form method="POST">
-        {%csrf_token%}
-        {{form.as_p}}
-
-        <button type="submit">Save</button>
-
-    </form>
+</head>
+<body>
+    <div class="edit-form-container">
+        <h2 class="edit-title">Edit Product Details</h2>
+        <form method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Save</button>
+        </form>
+    </div>
 </body>
 </html>

@@ -9,13 +9,12 @@ def category_upload_view(request):
     return render(request,"category/category_upload.html", {"form":form})
 
 def category_list_view(request):
-    categories = Categories.objects.all()
-    return render(request,"categories/category_list.html",{"categories":categories})
-
+    categories=Categories.objects.all()
+    return render(request,"category/category_list.html",{"categories":categories})
 
 def category_detail(request,id):
     category = Categories.objects.get(id=id)
-    return render(request,"category/category_details.html", {"category":category})
+    return render(request,"category/category_details.html",{"category":category})
 
 def category_update_view(request, id):
     category = Categories.objects.get(id=id)
@@ -23,7 +22,7 @@ def category_update_view(request, id):
         form = CategoryUploadForm(request.POST, instance=category)
         if form.is_valid():
             form.save()
-            return redirect("category_detail_view", id=category.id)
+            return redirect("category_detail_view",id=category.id)
 
     else:
         form =CategoryUploadForm(instance=category)
