@@ -38,6 +38,8 @@ urlpatterns = [
     path("vendor/", include ("vendor.urls")),
 
     path("signup/", include ("signup.urls")),
+    
+    path("api/", include ("api.urls")),
 
 
 
@@ -46,3 +48,4 @@ urlpatterns = [
 
 if settings.DEBUG:
     urlpatterns+=static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
+    
